@@ -12,7 +12,7 @@ from dateutil.relativedelta import relativedelta
 import functools
 
 
-@functools.lru_cache
+@functools.lru_cache(maxsize=128)
 def fetch_stock_data(ticker, start_time, end_time = date.today()):
     '''
         Fetches the Stock Historical Data for the Ticker Symbol between the Time Periods from Yahoo Finance
@@ -104,5 +104,5 @@ def plot_graph(ticker_symbol, time_period):
 
 
 if __name__ == '__main__':
-    app.run_server(debug=True)
+    app.run_server()
 
