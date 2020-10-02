@@ -55,6 +55,7 @@ def get_delta_data(time_period):
 
 
 app = dash.Dash(__name__, external_stylesheets=[dbc.themes.COSMO])
+app.title = "Stock Explorer | Vamsi Krishna"
 server = app.server
 
 
@@ -77,7 +78,9 @@ app.layout = dbc.Container([
     dbc.Row([
         dbc.Col(dbc.Spinner(color="primary", children = dcc.Graph(id="graph")))
 
-    ])
+    ]),
+
+    dbc.Row([dbc.Col(html.Footer("Data Source - Yahoo Finance(yfinance). Do not consider this site for your investment decisions. Please do your due deligience."))], justify='center')
 ], style={'margin-top': '100px'})
 
 
